@@ -3,6 +3,8 @@ const http = require("http");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const dishRouter = require("./routes/dishRouter");
+const promotionRouter = require("./routes/promotionRouter");
+const leaderRouter = require("./routes/leaderRouter");
 
 const app = express();
 
@@ -11,6 +13,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
 app.use("/dishes",dishRouter);
+app.use("/promotions",promotionRouter);
+app.use("/leaders",leaderRouter);
 
 app.use((req,res,next) => {
     res.statusCode = 200;
